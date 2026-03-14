@@ -420,17 +420,17 @@ main {
     }
 }
 
-.floating-heart-gallery {
+/* .floating-heart-gallery {
     position: absolute;
     font-size: 1.5rem;
     animation: floatUp 5s linear infinite;
-}
+} */
 
-/* .floating-heart-gallery {
+.floating-heart-gallery {
     pointer-events: none;
     max-width: 100%;
     animation: floatUp 5s linear infinite;
-} */
+}
 
 @keyframes floatUp {
     0% {
