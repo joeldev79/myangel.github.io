@@ -360,7 +360,7 @@ main {
     object-fit: cover;
 }
 
-/* @media (max-width: 576px) {
+@media (max-width: 576px) {
 
     .roundabout {
         max-width: 300px;
@@ -382,7 +382,7 @@ main {
         height: 260px;
     }
 
-} */
+}
 
 .vid-controls {
     position: relative;
