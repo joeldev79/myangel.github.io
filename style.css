@@ -360,6 +360,30 @@ main {
     object-fit: cover;
 }
 
+/* @media (max-width: 576px) {
+
+    .roundabout {
+        max-width: 300px;
+        height: 220px;
+    }
+
+    .roundabout .item {
+        width: 180px;
+        height: 260px;
+    }
+
+    .roundabout-video {
+        max-width: 300px;
+        height: 220px;
+    }
+
+    .roundabout-video .video-item {
+        width: 180px;
+        height: 260px;
+    }
+
+} */
+
 .vid-controls {
     position: relative;
     margin-top: 136px;
@@ -401,6 +425,12 @@ main {
     font-size: 1.5rem;
     animation: floatUp 5s linear infinite;
 }
+
+/* .floating-heart-gallery {
+    pointer-events: none;
+    max-width: 100%;
+    animation: floatUp 5s linear infinite;
+} */
 
 @keyframes floatUp {
     0% {
