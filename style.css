@@ -239,7 +239,6 @@ main {
 }
 
 /* Gallery Page  */
-
 .roundabout-gallery {
     display: flex;
     flex-direction: column;
@@ -256,21 +255,31 @@ main {
     position: relative;
     perspective: 1000px;
     margin: auto;
+    overflow: hidden;
 }
 
 .roundabout .item {
     position: absolute;
-    top: 70%;
+    top: 50%;
     left: 50%;
-    left: 40%;
     width: 250px;
     height: 360px;
-    margin: -125px -90px;
+    transform: translate(-50%, -50%);
     transition: transform 0.6s ease, opacity 0.6s ease;
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
     animation: img 1.5s infinite alternate;
+}
+
+.roundabout .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.roundabout .item:not(.active) {
+    filter: brightness(60%);
 }
 
 @keyframes img {
@@ -290,17 +299,12 @@ main {
     }
 }
 
-.roundabout .item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
+/* Image controls */
 .img-controls {
     position: relative;
-    margin-top: 260px;
+    margin-top: 40px;
     display: flex;
-    gap: 40px;
+    gap: 20px;
     justify-content: center;
 }
 
@@ -321,20 +325,27 @@ main {
     perspective: 1000px;
     transform-style: preserve-3d;
     z-index: 1;
+    overflow: hidden;
 }
 
 .roundabout-video .video-item {
     position: absolute;
     top: 50%;
-    left: 47%;
+    left: 50%;
     width: 250px;
     height: 380px;
-    margin: -150px -110px;
+    transform: translate(-50%, -50%);
     border-radius: 15px;
     overflow: hidden;
     transition: transform 0.8s cubic-bezier(.25, .1, .25, 1), opacity 0.8s;
     box-shadow: 0 0 30px #6eddf8;
     animation: glow 1.5s infinite alternate;
+}
+
+.roundabout-video .video-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 @keyframes glow {
@@ -354,45 +365,11 @@ main {
     }
 }
 
-.roundabout-video video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-@media (max-width: 576px) {
-
-    .roundabout {
-        max-width: 300px;
-        height: 220px;
-    }
-
-    .roundabout .item {
-        width: 180px;
-        height: 260px;
-    }
-
-    .roundabout-video {
-        max-width: 300px;
-        height: 220px;
-    }
-
-    .roundabout-video .video-item {
-        width: 180px;
-        height: 260px;
-    }
-
-}
-.roundabout,
-.roundabout-video {
-    overflow: hidden;
-}
-
 .vid-controls {
     position: relative;
-    margin-top: 136px;
+    margin-top: 20px;
     z-index: 1000;
-    gap: 40px;
+    gap: 20px;
     display: flex;
     justify-content: center;
 }
@@ -401,39 +378,34 @@ main {
     background-color: rgba(240, 120, 7, 0.945);
     color: white;
     border: none;
-    width: 80px;
+    width: 60px;
     height: 40px;
     border-radius: 10px;
     font-weight: 900;
-    padding-bottom: 56px;
-    font-size: xx-large;
+    font-size: 24px;
     animation: btns 1.4s infinite alternate;
+    cursor: pointer;
 }
 
 @keyframes btns {
     0% {
-        box-shadow: 0 0 5px blue 0 0 10px blue;
+        box-shadow: 0 0 5px blue, 0 0 10px blue;
     }
 
     50% {
-        box-shadow: 0 0 5px yellow 0 0 10px yellow;
+        box-shadow: 0 0 5px yellow, 0 0 10px yellow;
     }
 
     100% {
-        box-shadow: 0 0 5px rgba(166, 248, 34, 0.986) 0 0 10px rgba(166, 248, 34, 0.986);
+        box-shadow: 0 0 5px rgba(166, 248, 34, 0.986), 0 0 10px rgba(166, 248, 34, 0.986);
     }
 }
 
-/* .floating-heart-gallery {
+.floating-heart-gallery {
     position: absolute;
     font-size: 1.5rem;
     animation: floatUp 5s linear infinite;
-} */
-
-.floating-heart-gallery {
     pointer-events: none;
-    max-width: 100%;
-    animation: floatUp 5s linear infinite;
 }
 
 @keyframes floatUp {
@@ -449,6 +421,37 @@ main {
     100% {
         transform: translateY(-10vh) rotate(360deg);
         opacity: 0;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .roundabout,
+    .roundabout-video {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .roundabout .item,
+    .roundabout-video .video-item {
+        width: 80vw;
+        height: auto;
+        transform: translate(-50%, -50%);
+    }
+
+    .img-controls,
+    .vid-controls {
+        margin-top: 20px;
+        gap: 15px;
+    }
+
+    .floating-heart-gallery {
+        font-size: 1rem;
+    }
+
+    .roundabout .item,
+    .roundabout-video .video-item {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 }
 
